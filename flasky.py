@@ -1,6 +1,9 @@
 import os
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
+from app import create_app, db
+from app.models import User, Role
+from flask_migrate import Migrate
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -10,6 +13,13 @@ app.config['SQLALCHEMY_DATABASE_URI'] =\
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+
+app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+migrate = Migrate(app, db)
+
+@app.shell_context_processor
+def make_shell_context():
+    return dict(db=db, User=User, Role=Role)
 
 class Role(db.Model):
     __tablename__='roles'
