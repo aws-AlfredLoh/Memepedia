@@ -65,5 +65,5 @@ def index():
     @app.cli.command()
     def test():
         import unittest
-        tests = unittest.TestLoader().discover('tesst')
-        unittest.TestRunner(verbosity=2).run(test)
+        tests = unittest.TestLoader().discover('tests')
+        unittest.TestRunner(verbosity=2).run(tests)
