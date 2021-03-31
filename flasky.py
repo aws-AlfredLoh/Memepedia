@@ -66,4 +66,4 @@ def index():
     def test():
         import unittest
         tests = unittest.TestLoader().discover('tesst')
-        unittest.TestRunner(verbosity=2).run(test=)
+        unittest.TestRunner(verbosity=2).run(test)
