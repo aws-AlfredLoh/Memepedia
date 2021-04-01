@@ -62,8 +62,8 @@ def index():
     return render_template('index.html', form=form, name=session.get('name'), known=session.get('known', False))
 
 
-    @app.cli.command()
-    def test():
-        import unittest
-        tests = unittest.TestLoader().discover('tests')
-        unittest.TextTestRunner(verbosity=2).run(tests)
+@app.cli.command()
+def test():
+    import unittest
+    tests = unittest.TestLoader().discover('tests')
+    unittest.TextTestRunner(verbosity=2).run(tests)
