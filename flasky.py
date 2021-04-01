@@ -4,6 +4,7 @@ from flask import Flask
 from app import create_app, db
 from app.models import User, Role
 from flask_migrate import Migrate
+from flask_bootstrap import Bootstrap
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
